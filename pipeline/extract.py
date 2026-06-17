@@ -9,6 +9,7 @@ Low-confidence or score-mismatch games get needs_review: true.
 import json
 import os
 import re
+from email.utils import parsedate_tz
 from pathlib import Path
 
 from anthropic import Anthropic
@@ -121,7 +122,15 @@ def _validate(game: dict) -> dict:
     return game
 
 
-def run(force: bool = False):
+def _email_year(date_header: str) -> int | None:
+    """Parse the year from a raw email Date header string."""
+    if not date_header:
+        return None
+    parsed = parsedate_tz(date_header)
+    return parsed[0] if parsed else None
+
+
+def run(force: bool = False, year: int | None = None):
     EXTRACTED_DIR.mkdir(exist_ok=True)
 
     if not CLASSIFIED.exists():
@@ -130,7 +139,28 @@ def run(force: bool = False):
 
     classified = json.loads(CLASSIFIED.read_text(encoding="utf-8"))
     recaps = {mid: info for mid, info in classified.items() if info["kind"] == "recap"}
-    print(f"[extract] {len(recaps)} recap messages")
+
+    if year:
+        # Filter to only recaps whose email Date header matches the target year.
+        # Falls back to subject-parsed year for emails with missing/unparseable headers.
+        filtered = {}
+        for mid, info in recaps.items():
+            raw_path = RAW_DIR / f"{mid}.json"
+            if not raw_path.exists():
+                continue
+            msg = json.loads(raw_path.read_text(encoding="utf-8"))
+            email_yr = _email_year(msg.get("date", ""))
+            if email_yr is None:
+                # Try subject as fallback — recaps don't include year in subject,
+                # so skip if we can't determine it
+                continue
+            if email_yr == year:
+                filtered[mid] = info
+        skipped = len(recaps) - len(filtered)
+        recaps = filtered
+        print(f"[extract] {len(recaps)} recap messages for {year} ({skipped} older emails skipped)")
+    else:
+        print(f"[extract] {len(recaps)} recap messages (all years — use --year YYYY to limit)")
 
     client = Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
     new_count = 0
@@ -198,5 +228,7 @@ if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument("--force", action="store_true", help="Re-extract already-processed recaps")
+    parser.add_argument("--year", type=int, default=2026, help="Only extract recaps from this year (default: 2026)")
+    parser.add_argument("--all-years", action="store_true", help="Extract recaps from all years (overrides --year)")
     args = parser.parse_args()
-    run(force=args.force)
+    run(force=args.force, year=None if args.all_years else args.year)
