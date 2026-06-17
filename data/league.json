@@ -1,0 +1,317 @@
+{
+  "players": [
+    {"id": "alik", "nickname": "Alik"},
+    {"id": "alan", "nickname": "Alan"},
+    {"id": "bogdan", "nickname": "Bogdan"},
+    {"id": "boris", "nickname": "Boris"},
+    {"id": "boroda", "nickname": "Boroda"},
+    {"id": "constantin", "nickname": "Constantin"},
+    {"id": "denis", "nickname": "Denis"},
+    {"id": "dima-si", "nickname": "Dima SI"},
+    {"id": "dmitro", "nickname": "Dmitro"},
+    {"id": "edik", "nickname": "Edik"},
+    {"id": "elan", "nickname": "Elan"},
+    {"id": "emre", "nickname": "Emre"},
+    {"id": "gary", "nickname": "Gary"},
+    {"id": "gena", "nickname": "Gena"},
+    {"id": "igor", "nickname": "Igor"},
+    {"id": "igor-tall", "nickname": "Igor Tall"},
+    {"id": "isaac", "nickname": "Isaac"},
+    {"id": "jake", "nickname": "Jake"},
+    {"id": "joe", "nickname": "Joe"},
+    {"id": "joey", "nickname": "Joey"},
+    {"id": "justin", "nickname": "Justin"},
+    {"id": "kimran", "nickname": "Kimran"},
+    {"id": "kirill", "nickname": "Kirill"},
+    {"id": "kolya", "nickname": "Kolya"},
+    {"id": "lesha", "nickname": "Lesha"},
+    {"id": "leo", "nickname": "Leo"},
+    {"id": "lyonchik", "nickname": "Lyonchik"},
+    {"id": "matt", "nickname": "Matt"},
+    {"id": "matthew", "nickname": "Matthew"},
+    {"id": "max", "nickname": "Max"},
+    {"id": "maxim", "nickname": "Maxim"},
+    {"id": "mercky", "nickname": "Mercky"},
+    {"id": "misha-l", "nickname": "Misha L"},
+    {"id": "mohammed", "nickname": "Mohammed"},
+    {"id": "muchnik", "nickname": "Muchnik"},
+    {"id": "mussa", "nickname": "Mussa"},
+    {"id": "nicholas", "nickname": "Nicholas"},
+    {"id": "nick-brazil", "nickname": "Nick Brazil"},
+    {"id": "oleg", "nickname": "Oleg"},
+    {"id": "rustem", "nickname": "Rustem"},
+    {"id": "russell", "nickname": "Russell"},
+    {"id": "sal", "nickname": "Sal"},
+    {"id": "sandrik", "nickname": "Sandrik"},
+    {"id": "sasha-ru", "nickname": "Sasha Ru"},
+    {"id": "sasha-si", "nickname": "Sasha SI"},
+    {"id": "semyon", "nickname": "Semyon"},
+    {"id": "shenthen", "nickname": "Shenthen"},
+    {"id": "slava", "nickname": "Slava"},
+    {"id": "stas", "nickname": "Stas"},
+    {"id": "vadim", "nickname": "Vadim"},
+    {"id": "varenik", "nickname": "Varenik"},
+    {"id": "vitalik", "nickname": "Vitalik"},
+    {"id": "vito", "nickname": "Vito"},
+    {"id": "vova", "nickname": "Vova"},
+    {"id": "vova-br", "nickname": "Vova Br"},
+    {"id": "yasha", "nickname": "Yasha"},
+    {"id": "zhenya-def", "nickname": "Zhenya Def"}
+  ],
+  "aliases": [
+    {"alias": "Matthiew", "player_id": "matthew"}
+  ],
+  "games": [
+    {
+      "id": "2026-06-14",
+      "date": "2026-06-14",
+      "weekday": "Sun",
+      "season": 2026,
+      "venue": "Brielle",
+      "team_labels": ["Team 1", "Team 2"],
+      "rosters": [
+        ["Sandrik","Oleg","Gena","Denis","Muchnik","Mohammed","Jake","Edik","Semyon","Rustem","Yasha"],
+        ["Vadim","Lesha","Mercky","Zhenya Def","Maxim","Dmitro","Bogdan","Joe","Dima SI","Sasha Ru","Vito"]
+      ],
+      "gk": [null, null],
+      "score": [3, 4],
+      "goals": [
+        {"team": 1, "scorer": "Bogdan",  "assist": null,     "og": false, "seq": 1},
+        {"team": 1, "scorer": "Bogdan",  "assist": "Dima SI","og": false, "seq": 2},
+        {"team": 0, "scorer": "Edik",    "assist": "Muchnik","og": false, "seq": 3},
+        {"team": 0, "scorer": "Jake",    "assist": null,     "og": false, "seq": 4},
+        {"team": 1, "scorer": "Bogdan",  "assist": null,     "og": false, "seq": 5},
+        {"team": 1, "scorer": "Lesha",   "assist": null,     "og": false, "seq": 6},
+        {"team": 0, "scorer": "Jake",    "assist": null,     "og": false, "seq": 7}
+      ],
+      "highlights": "",
+      "confidence": "high",
+      "needs_review": false
+    },
+    {
+      "id": "2026-06-13",
+      "date": "2026-06-13",
+      "weekday": "Sat",
+      "season": 2026,
+      "venue": "Kaiser",
+      "team_labels": ["Team 1", "Team 2"],
+      "rosters": [
+        ["Vadim","Nick Brazil","Matt","Matthew","Isaac","Zhenya Def","Kimran","Edik","Jake","Gary"],
+        ["Alik","Max","Oleg","Emre","Kirill","Kolya","Sasha SI","Boroda","Elan","Yasha"]
+      ],
+      "gk": [null, "Alik"],
+      "score": [5, 2],
+      "goals": [
+        {"team": 0, "scorer": "Gary",    "assist": null,  "og": false, "seq": 1},
+        {"team": 1, "scorer": "Kirill",  "assist": "Oleg","og": false, "seq": 2},
+        {"team": 0, "scorer": "Matthew", "assist": null,  "og": false, "seq": 3},
+        {"team": 0, "scorer": "Matthew", "assist": null,  "og": false, "seq": 4},
+        {"team": 0, "scorer": "Matthew", "assist": null,  "og": false, "seq": 5},
+        {"team": 0, "scorer": "Gary",    "assist": null,  "og": false, "seq": 6},
+        {"team": 1, "scorer": "Max",     "assist": null,  "og": false, "seq": 7}
+      ],
+      "highlights": "",
+      "confidence": "high",
+      "needs_review": false
+    },
+    {
+      "id": "2026-06-07",
+      "date": "2026-06-07",
+      "weekday": "Sun",
+      "season": 2026,
+      "venue": "Brielle",
+      "team_labels": ["Team 1", "Team 2"],
+      "rosters": [
+        ["Sasha Ru","Russell","Oleg","Emre","Isaac","Joe","Jake","Dima SI","Semyon","Lyonchik","Yasha"],
+        ["Vadim","Matt","Mussa","Mercky","Maxim","Kimran","Dmitro","Sasha SI","Igor","Rustem","Vito"]
+      ],
+      "gk": ["Semyon", "Igor"],
+      "score": [4, 2],
+      "goals": [
+        {"team": 1, "scorer": "Maxim",   "assist": null,      "og": true,  "seq": 1},
+        {"team": 0, "scorer": "Yasha",   "assist": "Russell", "og": false, "seq": 2},
+        {"team": 1, "scorer": "Mercky",  "assist": null,      "og": false, "seq": 3},
+        {"team": 0, "scorer": "Emre",    "assist": null,      "og": false, "seq": 4},
+        {"team": 0, "scorer": "Russell", "assist": null,      "og": false, "seq": 5},
+        {"team": 0, "scorer": "Joe",     "assist": null,      "og": false, "seq": 6}
+      ],
+      "highlights": "",
+      "confidence": "high",
+      "needs_review": false
+    },
+    {
+      "id": "2026-06-06",
+      "date": "2026-06-06",
+      "weekday": "Sat",
+      "season": 2026,
+      "venue": "Kaiser",
+      "team_labels": ["Team 1", "Team 2"],
+      "rosters": [
+        ["Vadim","Russell","Matt","Matthew","Boris","Boroda","Jake","Gary"],
+        ["Alik","Max","Oleg","Kirill","Emre","Isaac","Kimran","Yasha"]
+      ],
+      "gk": [null, "Kimran"],
+      "score": [3, 7],
+      "goals": [
+        {"team": 0, "scorer": "Gary",    "assist": null, "og": false, "seq": 1},
+        {"team": 0, "scorer": "Matthew", "assist": null, "og": false, "seq": 2},
+        {"team": 1, "scorer": "Emre",    "assist": null, "og": false, "seq": 3},
+        {"team": 1, "scorer": "Emre",    "assist": null, "og": false, "seq": 4},
+        {"team": 1, "scorer": "Alik",    "assist": null, "og": false, "seq": 5},
+        {"team": 1, "scorer": "Kirill",  "assist": null, "og": false, "seq": 6},
+        {"team": 1, "scorer": "Kirill",  "assist": null, "og": false, "seq": 7},
+        {"team": 0, "scorer": "Russell", "assist": null, "og": false, "seq": 8},
+        {"team": 1, "scorer": "Isaac",   "assist": null, "og": false, "seq": 9},
+        {"team": 1, "scorer": "Isaac",   "assist": null, "og": false, "seq": 10}
+      ],
+      "highlights": "",
+      "confidence": "high",
+      "needs_review": false
+    },
+    {
+      "id": "2026-05-31",
+      "date": "2026-05-31",
+      "weekday": "Sun",
+      "season": 2026,
+      "venue": "Brielle",
+      "team_labels": ["Team 1", "Team 2"],
+      "rosters": [
+        ["Vadim","Russell","Emre","Oleg","Kimran","Boris","Mohammed","Muchnik","Edik","Semyon","Lyonchik"],
+        ["Maxim","Matt","Alan","Max","Isaac","Joe","Stas","Vova Br","Igor","Rustem","Yasha"]
+      ],
+      "gk": ["Semyon", "Igor"],
+      "score": [0, 5],
+      "goals": [
+        {"team": 1, "scorer": "Maxim", "assist": null,  "og": true,  "seq": 1},
+        {"team": 1, "scorer": "Joe",   "assist": null,  "og": false, "seq": 2},
+        {"team": 1, "scorer": "Isaac", "assist": "Matt","og": false, "seq": 3},
+        {"team": 1, "scorer": "Alan",  "assist": null,  "og": false, "seq": 4},
+        {"team": 1, "scorer": "Stas",  "assist": null,  "og": false, "seq": 5}
+      ],
+      "highlights": "Game stopped early.",
+      "confidence": "high",
+      "needs_review": false
+    },
+    {
+      "id": "2026-05-30",
+      "date": "2026-05-30",
+      "weekday": "Sat",
+      "season": 2026,
+      "venue": "Kaiser",
+      "team_labels": ["Team 1", "Team 2"],
+      "rosters": [
+        ["Vadim","Max","Emre","Kimran","Boris","Isaac","Boroda","Mohammed","Vova","Gary"],
+        ["Alik","Oleg","Kirill","Matthew","Misha L","Sasha SI","Edik","Nicholas","Stas","Yasha"]
+      ],
+      "gk": ["Vadim", "Alik"],
+      "score": [1, 0],
+      "goals": [
+        {"team": 0, "scorer": "Isaac", "assist": null, "og": false, "seq": 1}
+      ],
+      "highlights": "",
+      "confidence": "high",
+      "needs_review": false
+    },
+    {
+      "id": "2026-05-24",
+      "date": "2026-05-24",
+      "weekday": "Sun",
+      "season": 2026,
+      "venue": "Brielle",
+      "team_labels": ["Team 1", "Team 2"],
+      "rosters": [
+        ["Vadim","Russell","Emre","Kimran","Joey","Mohammed","Varenik","Sasha Ru","Igor Tall","Dima SI","Vito"],
+        ["Sandrik","Max","Mussa","Denis","Vitalik","Boris","Muchnik","Semyon","Edik","Slava","Rustem"]
+      ],
+      "gk": ["Vadim", null],
+      "score": [3, 2],
+      "goals": [
+        {"team": 0, "scorer": "Kimran",  "assist": null,  "og": false, "seq": 1},
+        {"team": 0, "scorer": "Emre",    "assist": null,  "og": false, "seq": 2},
+        {"team": 0, "scorer": "Russell", "assist": null,  "og": false, "seq": 3},
+        {"team": 1, "scorer": "Muchnik", "assist": null,  "og": false, "seq": 4},
+        {"team": 1, "scorer": "Muchnik", "assist": "Max", "og": false, "seq": 5}
+      ],
+      "highlights": "",
+      "confidence": "high",
+      "needs_review": false
+    },
+    {
+      "id": "2026-05-23",
+      "date": "2026-05-23",
+      "weekday": "Sat",
+      "season": 2026,
+      "venue": "Kaiser",
+      "team_labels": ["RED", "Blue"],
+      "rosters": [
+        ["Russell","Constantin","Kimran","Nicholas","Vadim","Zhenya Def","Emre","Boroda","Gary","Edik"],
+        ["Matt","Kirill","Matthew","Jake","Slava","Boris","Oleg","Misha L","Sasha Ru","Sasha SI"]
+      ],
+      "gk": ["Vadim", "Slava"],
+      "score": [5, 2],
+      "goals": [
+        {"team": 0, "scorer": "Russell",  "assist": null,      "og": false, "seq": 1},
+        {"team": 0, "scorer": "Kimran",   "assist": null,      "og": false, "seq": 2},
+        {"team": 0, "scorer": "Emre",     "assist": null,      "og": false, "seq": 3},
+        {"team": 0, "scorer": "Nicholas", "assist": "Edik",    "og": false, "seq": 4},
+        {"team": 1, "scorer": "Kirill",   "assist": null,      "og": false, "seq": 5},
+        {"team": 1, "scorer": "Jake",     "assist": null,      "og": false, "seq": 6},
+        {"team": 0, "scorer": "Gary",     "assist": "Nicholas","og": false, "seq": 7}
+      ],
+      "highlights": "",
+      "confidence": "high",
+      "needs_review": false
+    },
+    {
+      "id": "2026-05-17",
+      "date": "2026-05-17",
+      "weekday": "Sun",
+      "season": 2026,
+      "venue": "Brielle",
+      "team_labels": ["Team 1", "Team 2"],
+      "rosters": [
+        ["Sasha Ru","Russell","Mercky","Justin","Muchnik","Vitalik","Edik","Igor","Lyonchik","Yasha"],
+        ["Vadim","Emre","Leo","Maxim","Joey","Boris","Kimran","Mohammed","Lesha","Rustem"]
+      ],
+      "gk": ["Lyonchik", "Lesha"],
+      "score": [3, 7],
+      "goals": [
+        {"team": 0, "scorer": "Russell", "assist": null, "og": false, "seq": 1},
+        {"team": 0, "scorer": "Justin",  "assist": null, "og": false, "seq": 2},
+        {"team": 0, "scorer": "Muchnik", "assist": null, "og": false, "seq": 3},
+        {"team": 1, "scorer": "Leo",     "assist": null, "og": false, "seq": 4},
+        {"team": 1, "scorer": "Leo",     "assist": null, "og": false, "seq": 5},
+        {"team": 1, "scorer": "Leo",     "assist": null, "og": false, "seq": 6},
+        {"team": 1, "scorer": "Maxim",   "assist": null, "og": false, "seq": 7},
+        {"team": 1, "scorer": "Maxim",   "assist": null, "og": false, "seq": 8},
+        {"team": 1, "scorer": "Emre",    "assist": null, "og": false, "seq": 9},
+        {"team": 1, "scorer": "Kimran",  "assist": null, "og": false, "seq": 10}
+      ],
+      "highlights": "",
+      "confidence": "high",
+      "needs_review": false
+    },
+    {
+      "id": "2026-05-10",
+      "date": "2026-05-10",
+      "weekday": "Sun",
+      "season": 2026,
+      "venue": "Brielle",
+      "team_labels": ["Team 1", "Team 2"],
+      "rosters": [
+        ["Sandrik","Russell","Oleg","Gena","Leo","Mercky","Joey","Muchnik","Edik","Igor","Semyon","Yasha"],
+        ["Vadim","Matt","Max","Sal","Shenthen","Denis","Boris","Dmitro","Mohammed","Sasha Ru","Lyonchik","Vito"]
+      ],
+      "gk": ["Semyon", "Lyonchik"],
+      "score": [1, 2],
+      "goals": [
+        {"team": 0, "scorer": "Muchnik", "assist": "Leo", "og": false, "seq": 1},
+        {"team": 1, "scorer": "Denis",   "assist": null,  "og": false, "seq": 2},
+        {"team": 1, "scorer": "Denis",   "assist": "Sal", "og": false, "seq": 3}
+      ],
+      "highlights": "\"Leo's father\" (Muchnik) scored the sole goal for Team 1.",
+      "confidence": "high",
+      "needs_review": false
+    }
+  ]
+}

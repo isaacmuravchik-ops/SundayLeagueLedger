@@ -1,0 +1,30 @@
+# env
+.env
+.env.local
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+pipeline/raw/
+pipeline/token.json
+pipeline/state.json
+pipeline/review_queue.json
+pipeline/fuzzy_log.jsonl
+pipeline/canonical_players.json
+pipeline/official_standings_*.json
+pipeline/reconcile_report.json
+
+# Node
+node_modules/
+web/dist/
+web/.vercel/
+
+# Vercel
+.vercel/
+
+# OS
+.DS_Store
+Thumbs.db

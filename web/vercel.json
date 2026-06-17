@@ -1,0 +1,8 @@
+{
+  "functions": {
+    "api/ask.js": { "maxDuration": 30 }
+  },
+  "rewrites": [
+    { "source": "/data/:path*", "destination": "/data/:path*" }
+  ]
+}

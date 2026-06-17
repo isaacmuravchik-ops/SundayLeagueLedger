@@ -1,0 +1,49 @@
+name: Refresh league data
+
+on:
+  schedule:
+    # Saturday and Sunday at 10am ET (15:00 UTC)
+    - cron: "0 15 * * 6"
+    - cron: "0 15 * * 0"
+  workflow_dispatch:  # allow manual trigger
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install pipeline deps
+        run: pip install -r pipeline/requirements.txt
+
+      - name: Write Gmail token
+        run: echo '${{ secrets.GMAIL_TOKEN_JSON }}' > pipeline/token.json
+
+      - name: Ingest new emails
+        env:
+          GMAIL_CREDENTIALS_PATH: pipeline/credentials.json
+        run: python -m pipeline.ingest --incremental
+
+      - name: Classify
+        run: python -m pipeline.classify
+
+      - name: Extract recaps
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python -m pipeline.extract
+
+      - name: Assemble league.json
+        run: python -m pipeline.assemble
+
+      - name: Commit updated data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/league.json
+          git diff --staged --quiet || git commit -m "data: refresh $(date -u '+%Y-%m-%d')"
+          git push
