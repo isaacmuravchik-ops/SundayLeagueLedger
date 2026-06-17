@@ -37,18 +37,18 @@ def _get_service():
         else:
             flow = InstalledAppFlow.from_client_secrets_file(CREDENTIALS_PATH, SCOPES)
             creds = flow.run_local_server(port=0)
-        TOKEN_PATH.write_text(creds.to_json())
+        TOKEN_PATH.write_text(creds.to_json(), encoding="utf-8")
     return build("gmail", "v1", credentials=creds)
 
 
 def _load_state() -> dict:
     if STATE_FILE.exists():
-        return json.loads(STATE_FILE.read_text())
+        return json.loads(STATE_FILE.read_text(encoding="utf-8"))
     return {"processed_ids": [], "last_history_id": None}
 
 
 def _save_state(state: dict):
-    STATE_FILE.write_text(json.dumps(state, indent=2))
+    STATE_FILE.write_text(json.dumps(state, indent=2), encoding="utf-8")
 
 
 def _decode_body(payload: dict) -> str:
@@ -96,7 +96,7 @@ def _fetch_and_store(service, msg_id: str, dry_run: bool) -> dict:
     }
     if not dry_run:
         out = RAW_DIR / f"{msg_id}.json"
-        out.write_text(json.dumps(record, indent=2, ensure_ascii=False))
+        out.write_text(json.dumps(record, indent=2, ensure_ascii=False), encoding="utf-8")
     return record
 
 

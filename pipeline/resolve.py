@@ -51,13 +51,13 @@ class Resolver:
         if self._loaded:
             return
         if CANONICAL_FILE.exists():
-            raw = json.loads(CANONICAL_FILE.read_text())
+            raw = json.loads(CANONICAL_FILE.read_text(encoding="utf-8"))
             self._canonical = raw
             self._canonical_lower = {n.lower(): n for n in raw}
         # Load aliases from league.json (ground-truth typo folds)
         league_path = ALIASES_FILE
         if league_path.exists():
-            league = json.loads(league_path.read_text())
+            league = json.loads(league_path.read_text(encoding="utf-8"))
             for a in league.get("aliases", []):
                 # Map alias → the player's canonical nickname
                 alias_lower = _normalize(a["alias"])
@@ -125,12 +125,12 @@ class Resolver:
     def flush_review(self):
         if not self._review:
             return
-        existing = json.loads(REVIEW_QUEUE.read_text()) if REVIEW_QUEUE.exists() else []
+        existing = json.loads(REVIEW_QUEUE.read_text(encoding="utf-8")) if REVIEW_QUEUE.exists() else []
         existing_raws = {r.get("raw") for r in existing}
         for item in self._review:
             if item["raw"] not in existing_raws:
                 existing.append(item)
-        REVIEW_QUEUE.write_text(json.dumps(existing, indent=2))
+        REVIEW_QUEUE.write_text(json.dumps(existing, indent=2), encoding="utf-8")
         self._review.clear()
 
 

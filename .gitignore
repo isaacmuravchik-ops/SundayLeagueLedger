@@ -10,6 +10,7 @@ __pycache__/
 venv/
 pipeline/raw/
 pipeline/token.json
+pipeline/credentials.json
 pipeline/state.json
 pipeline/review_queue.json
 pipeline/fuzzy_log.jsonl

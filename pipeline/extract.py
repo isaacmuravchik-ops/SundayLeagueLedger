@@ -128,7 +128,7 @@ def run(force: bool = False):
         print("[extract] classified.json not found — run classify.py first")
         return
 
-    classified = json.loads(CLASSIFIED.read_text())
+    classified = json.loads(CLASSIFIED.read_text(encoding="utf-8"))
     recaps = {mid: info for mid, info in classified.items() if info["kind"] == "recap"}
     print(f"[extract] {len(recaps)} recap messages")
 
@@ -146,7 +146,7 @@ def run(force: bool = False):
             print(f"[extract] WARN: raw/{mid}.json missing, skipping")
             continue
 
-        msg = json.loads(raw_path.read_text())
+        msg = json.loads(raw_path.read_text(encoding="utf-8"))
         body = msg.get("body", "")
         subject = msg.get("subject", "")
 
@@ -176,7 +176,7 @@ def run(force: bool = False):
         game["id"] = game.get("date") or mid
         game = _validate(game)
 
-        out_path.write_text(json.dumps(game, indent=2, ensure_ascii=False))
+        out_path.write_text(json.dumps(game, indent=2, ensure_ascii=False), encoding="utf-8")
         new_count += 1
 
         if game.get("needs_review"):
@@ -184,12 +184,12 @@ def run(force: bool = False):
 
     # Write / update review queue
     review_path = Path(__file__).parent / "review_queue.json"
-    existing_review = json.loads(review_path.read_text()) if review_path.exists() else []
+    existing_review = json.loads(review_path.read_text(encoding="utf-8")) if review_path.exists() else []
     existing_ids = {r["id"] for r in existing_review}
     for item in review_needed:
         if item["id"] not in existing_ids:
             existing_review.append(item)
-    review_path.write_text(json.dumps(existing_review, indent=2))
+    review_path.write_text(json.dumps(existing_review, indent=2), encoding="utf-8")
 
     print(f"[extract] done. {new_count} new extractions, {len(review_needed)} need review.")
 

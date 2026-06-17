@@ -82,7 +82,7 @@ def classify_subject(subject: str, has_xlsx: bool) -> str:
 
 
 def run(use_claude_fallback: bool = True):
-    existing = json.loads(OUTPUT.read_text()) if OUTPUT.exists() else {}
+    existing = json.loads(OUTPUT.read_text(encoding="utf-8")) if OUTPUT.exists() else {}
 
     raw_files = list(RAW_DIR.glob("*.json"))
     print(f"[classify] {len(raw_files)} raw messages, {len(existing)} already classified")
@@ -96,7 +96,7 @@ def run(use_claude_fallback: bool = True):
         if mid in existing:
             continue
 
-        msg = json.loads(path.read_text())
+        msg = json.loads(path.read_text(encoding="utf-8"))
         subject = msg.get("subject", "")
         has_xlsx = any(
             a.get("filename", "").endswith(".xlsx")
@@ -119,7 +119,7 @@ def run(use_claude_fallback: bool = True):
         }
         new_count += 1
 
-    OUTPUT.write_text(json.dumps(results, indent=2, ensure_ascii=False))
+    OUTPUT.write_text(json.dumps(results, indent=2, ensure_ascii=False), encoding="utf-8")
     print(f"[classify] done. {new_count} new, {claude_count} needed Claude fallback.")
     kinds = {}
     for v in results.values():

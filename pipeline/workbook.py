@@ -117,7 +117,7 @@ def run():
         print("[workbook] classified.json not found — run classify.py first")
         return
 
-    classified = json.loads(CLASSIFIED.read_text())
+    classified = json.loads(CLASSIFIED.read_text(encoding="utf-8"))
     stats_msgs = {mid: info for mid, info in classified.items() if info["kind"] == "stats"}
     print(f"[workbook] {len(stats_msgs)} stats emails found")
 
@@ -134,7 +134,7 @@ def run():
         raw_path = RAW_DIR / f"{mid}.json"
         if not raw_path.exists():
             continue
-        msg = json.loads(raw_path.read_text())
+        msg = json.loads(raw_path.read_text(encoding="utf-8"))
         for att in msg.get("attachments", []):
             if not att.get("filename", "").endswith(".xlsx"):
                 continue
@@ -145,12 +145,12 @@ def run():
             all_players.update(parsed["players"])
             by_year[year] = parsed
             out = Path(__file__).parent / f"official_standings_{year}.json"
-            out.write_text(json.dumps(parsed, indent=2, ensure_ascii=False))
+            out.write_text(json.dumps(parsed, indent=2, ensure_ascii=False), encoding="utf-8")
             print(f"[workbook] wrote {out.name} ({len(parsed['players'])} players)")
 
     # Canonical player list = union of all workbook names across all years
     canonical = sorted(all_players)
-    CANONICAL_OUT.write_text(json.dumps(canonical, indent=2, ensure_ascii=False))
+    CANONICAL_OUT.write_text(json.dumps(canonical, indent=2, ensure_ascii=False), encoding="utf-8")
     print(f"[workbook] canonical_players.json: {len(canonical)} players")
 
 

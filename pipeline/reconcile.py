@@ -59,8 +59,8 @@ def run(year: int = 2026):
         print("[reconcile] league.json not found — run assemble.py first")
         return
 
-    official = json.loads(official_path.read_text())
-    league = json.loads(LEAGUE_JSON.read_text())
+    official = json.loads(official_path.read_text(encoding="utf-8"))
+    league = json.loads(LEAGUE_JSON.read_text(encoding="utf-8"))
 
     computed = _compute_standings(league.get("games", []), year)
     official_map = {p["nickname"]: p for p in official.get("standings", [])}
@@ -96,7 +96,7 @@ def run(year: int = 2026):
         "total_computed_players": len(computed),
         "discrepancies": discrepancies,
     }
-    REPORT_OUT.write_text(json.dumps(report, indent=2))
+    REPORT_OUT.write_text(json.dumps(report, indent=2), encoding="utf-8")
 
     if discrepancies:
         print(f"[reconcile] {len(discrepancies)} discrepancies found — see reconcile_report.json")

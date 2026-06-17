@@ -48,7 +48,7 @@ def _build_venue_map() -> dict[str, str]:
     """Build date → venue from announcement messages."""
     if not CLASSIFIED.exists():
         return {}
-    classified = json.loads(CLASSIFIED.read_text())
+    classified = json.loads(CLASSIFIED.read_text(encoding="utf-8"))
     venue_map: dict[str, str] = {}
     for mid, info in classified.items():
         if info["kind"] != "announcement":
@@ -56,7 +56,7 @@ def _build_venue_map() -> dict[str, str]:
         raw_path = RAW_DIR / f"{mid}.json"
         if not raw_path.exists():
             continue
-        msg = json.loads(raw_path.read_text())
+        msg = json.loads(raw_path.read_text(encoding="utf-8"))
         subject = msg.get("subject", "")
         body = msg.get("body", "")
         venue = _parse_announcement_venue(subject, body)
@@ -132,7 +132,7 @@ def run():
 
     games: list[dict] = []
     for path in extracted_files:
-        game = json.loads(path.read_text())
+        game = json.loads(path.read_text(encoding="utf-8"))
         # Skip extraction errors with no date
         if not game.get("date"):
             continue
@@ -155,7 +155,7 @@ def run():
     # Load existing aliases from current league.json (preserve manual corrections)
     existing_aliases = []
     if LEAGUE_JSON.exists():
-        existing = json.loads(LEAGUE_JSON.read_text())
+        existing = json.loads(LEAGUE_JSON.read_text(encoding="utf-8"))
         existing_aliases = existing.get("aliases", [])
 
     players = _build_players_list(games)
@@ -166,12 +166,12 @@ def run():
         "games": games,
     }
 
-    LEAGUE_JSON.write_text(json.dumps(output, indent=2, ensure_ascii=False))
+    LEAGUE_JSON.write_text(json.dumps(output, indent=2, ensure_ascii=False), encoding="utf-8")
     print(f"[assemble] wrote data/league.json: {len(players)} players, {len(games)} games")
 
     review_path = Path(__file__).parent / "review_queue.json"
     if review_path.exists():
-        queue = json.loads(review_path.read_text())
+        queue = json.loads(review_path.read_text(encoding="utf-8"))
         if queue:
             print(f"[assemble] {len(queue)} items in review_queue.json — check before publishing")
 
